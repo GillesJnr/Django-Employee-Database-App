@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from . forms import EmployeeForm
 
 # Create your views here.
 
 
 def employee_form(request):
-    return render(request, "employees/employee_form.html")
+    form = EmployeeForm()
+    return render(request, "employees/employee_form.html", {'form': form})
 
 
 def employee_list(request):
