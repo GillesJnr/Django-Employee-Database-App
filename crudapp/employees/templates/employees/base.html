@@ -7,6 +7,12 @@
 </head>
 <body>
 <div class="container">
+    <nav class="right">
+        <ul style="list-type:none" class="list">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'list' %}">Employees</a></li>
+        </ul>
+    </nav>
     <div class="col-md-10 offset-md-1 mt-5">
         <div class="jumbotron" style="background:#b5bcc3">
             <h1 class="display-4">Employee Register</h1>
