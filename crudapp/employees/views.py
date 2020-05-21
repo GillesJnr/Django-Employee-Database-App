@@ -6,15 +6,20 @@ from . models import Employee
 
 
 def employee_list(request):
-    #context = {'employee_list' = Employee.objects.all()}
-    #print(context)
-    return render(request, "employees/employee_list.html")
+    employee_data = Employee.objects.all()
+    # list_xs = {employee_data}
+    list_result = [entry for entry in employee_data]  # converts ValuesQuerySet into Python list
+    context = {"list_result": list_result}
+    # print(context)
+    return render(request, "employees/employee_list.html", context)
 
 
-
-def employee_form(request):
+def employee_form(request, id=0):
     if request.method == "GET":
-        form = EmployeeForm()
+        if id == 0:
+            form = EmployeeForm()
+        else:
+            employee = Employee.objects.get(pk=id)
         return render(request, "employees/employee_form.html", {'form': form})
 
     else:
