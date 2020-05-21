@@ -23,9 +23,18 @@
                     {{form.position | as_crispy_field}}
                 </div>
             </div>
-            <button type="submit" class="success  btn-lg">
+            <div class="row">
+                <div class="col-md-8">
+                     <button type="submit" class="btn btn-success btn-lg btn-block">
                 <i class="fas fa-save"></i> Save
                 </button>
+                </div>
+                <div class="col-md-4">
+                    <a href="{% url 'list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Back to list</a>
+                </div>
+            </div>
+
         </form>
 
     {% endblock %}
