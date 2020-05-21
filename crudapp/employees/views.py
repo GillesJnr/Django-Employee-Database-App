@@ -20,6 +20,7 @@ def employee_form(request, id=0):
             form = EmployeeForm()
         else:
             employee = Employee.objects.get(pk=id)
+            form = EmployeeForm(instance=employee)
         return render(request, "employees/employee_form.html", {'form': form})
 
     else:
