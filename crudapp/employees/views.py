@@ -29,10 +29,12 @@ def employee_form(request, id=0):
         else:
             employee = Employee.objects.get(pk=id)
             form = EmployeeForm(request.POST, instance=employee)
-            if form.is_valid():
-                form.save()
+        if form.is_valid():
+            form.save()
         return redirect('list')
 
 
-def employee_delete(request):
-    return
+def employee_delete(request, id):
+    employee = Employee.objects.get(pk=id)
+    employee.delete()
+    return redirect('list')
